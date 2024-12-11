@@ -9,7 +9,8 @@ html {
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    width: 800px;
+    width: 98%;
+    max-width: 960px;
     margin: 0 auto;
     border: 3px solid #931420;
     background-color: #fffded;
@@ -40,7 +41,9 @@ header h3 {
 }
 header img {
 	float: left;
+	max-width: 100%;
 	padding: 0 30px;
+	height: auto;
 }
 .shadow {
 	text-shadow: 2px 2px 2px #800000;
@@ -54,12 +57,13 @@ header img {
 }
 #nav_menu ul li {
 	float: left;
+	width: 100%;
 }
 #nav_menu ul li a {
     display: block;
     width: 160px;
     text-align: center;
-    padding: 1em 0;
+    padding: 10px;
     text-decoration: none;
     background-color: #800000;
     color: white;
@@ -87,9 +91,9 @@ header img {
 
 /* the styles for the section */
 section {
-	width: 525px;
-	float: right;
-	padding: 0 20px 20px 20px;
+    float: none;
+    width: 100%%; 
+    padding: 0px;
 }
 section h1 {
 	font-size: 150%;
@@ -133,13 +137,27 @@ article img {
 	float: right;
 	margin: .5em 0 1em 1em;
 	border: 1px solid black;
+	max-width: 30%;
+	min-width: 150px;
+}
+/* Media Queries for responsive design */
+@media (max-width: 800px) { /* Step 16: First breakpoint */
+    aside h2, section h1, aside h2 {
+        font-size: 85%; /* Adjust font size */
+    }
 }
 
+@media (max-width: 600px) { /* Step 19: Second breakpoint */
+    header img {
+        float: none; /* Center the header image */
+    }
 /* the styles for the aside */
 aside {
-	width: 215px;
-	float: right;
-	padding: 0 0 20px 20px;
+	float: none;
+        width: 100%; /* Percentage width */
+        padding: 0px;
+	padding-right: 20px; /* Align paddings */
+        padding-left: 20px;
 }
 aside h2 {
 	color: #800000;
@@ -165,4 +183,31 @@ footer p {
 	text-align: center;
 	color: white;
 	padding: 1em 0;
+}
+    .speakers {
+        column-count: 2; /* Step 23: Two columns for speakers */
+    }
+}
+
+/* Media Query for footer responsiveness */
+@media (max-width: 400px) { /* Step 30: Final breakpoint */
+    body {
+        font-size: 90%; /* Adjust base font size */
+    }
+}
+
+/* Mobile Menu Styling */
+.slicknav_menu {
+    display: none; /* Step 27: Hide mobile menu initially */
+}
+
+@media (max-width: 600px) { /* Mobile menu styles */
+    nav {
+        display: none; /* Hide standard menu */
+    }
+
+    #mobile_menu {
+        display: block; /* Show mobile menu */
+        background-color: #800000 !important; /* Change background color */
+    }
 }
